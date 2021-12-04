@@ -16,13 +16,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "last_name")
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "phone_number")
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
     @Column(name = "email")
@@ -31,6 +31,7 @@ public class User implements UserDetails {
     @Column
     private String password;
 
+    //список ролей загружается вместе с пользователем сразу (не ждет пока к нему обратятся).
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))

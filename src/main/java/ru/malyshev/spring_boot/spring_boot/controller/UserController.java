@@ -33,8 +33,9 @@ public class UserController {
     }
 
     @GetMapping(value = "/admin")
-    public String listUsers(Model model) {
+    public String listUsers(Model model, @ModelAttribute User user) {
         model.addAttribute("allUsers", userService.getAllUsers());
+        model.addAttribute("allRoles", roleService.getAllRoles());
         return "adminpage";
     }
 

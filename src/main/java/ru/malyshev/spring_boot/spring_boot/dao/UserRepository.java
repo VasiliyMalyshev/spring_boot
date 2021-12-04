@@ -8,4 +8,5 @@ import ru.malyshev.spring_boot.spring_boot.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User getUserByUsername(String username);
+
 }

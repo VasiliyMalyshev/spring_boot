@@ -21,6 +21,7 @@
             <th>LAST_NAME</th>
             <th>PHONE_NUMBER</th>
             <th>EMAIL</th>
+            <th>ROLES</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -30,10 +31,13 @@
             <td th:text="${user.lastName}">LAST_NAME</td>
             <td th:text="${user.phoneNumber}">PHONE_NUMBER</td>
             <td th:text="${user.email}">EMAIL</td>
+            <td th:each="role: ${user.roles}"><p th:text="${role.name}"></p></td>
             <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
             <td><a th:href="@{/remove/{id}(id=${user.id})}">Delete</a></td>
         </tr>
+
     </table>
+
     <br/>
     <br/>
     <a th:href="@{/logout}">LOGOUT</a>
